@@ -7,68 +7,84 @@
 	
 	
 	<body>
-
-		<h1>AMC Website User Interface Survey</h1>
-
-		<h3>The purpose of this survey is for our organization to get some insight on the perspective of our website's users. We would like to know our users' opinions of our website, <a href="https://www.amc.com/twdu/fear-the-walking-dead">amc.com</a> , and it's user interface depicted in the image below.</h3>
+		<br>
+		<br>
+		<br>
+		<br>
+		<h1>AMC WEBSITE USER INTERFACE SURVEY</h1>
+		<br>
 		<br>
 		<br>
 		<a href="https://www.amc.com/twdu/fear-the-walking-dead">
-		<img src="images/amc-ftwdu-webpage.png" alt="https://www.amc.com/twdu/fear-the-walking-dead" width="450" height="300"">
+		<img src="images/amc-ftwdu-webpage.png" alt="https://www.amc.com/twdu/fear-the-walking-dead" width="1100" height="548"">
 		</a>
-		<h3><i>Here is a link to the website: <a href="https://www.amc.com/twdu/fear-the-walking-dead">https://www.amc.com/twdu/fear-the-walking-dead</a></i></h3>
+		
+		<div class="website">
+		<h3><i>Link to the website: <a href="https://www.amc.com/twdu/fear-the-walking-dead">https://www.amc.com/twdu/fear-the-walking-dead</a></i></h3>
 		<br>
 		<br>
+		</div>
+		
+		
+		<h2>The purpose of this survey is for our organization to get some insight on the perspective of our website's users. We would like to know our users' opinions of our website, <a href="https://www.amc.com/twdu/fear-the-walking-dead">amc.com/twdu</a>, and it's user interface.</h2>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		
 		<h2>Please answer the following questions about your experience using the AMC website user interface.</h2>
-		<br>
+		
+		
 		<form id="myform" action="index.php">
 		
 		<! Text Type Q >
 		<div class="question">
-		<h2> Please provide your username. </h2>
-		<p>Username Handle: <input type="text" name="firstname"></p>
-		<br>
-		<br>
+		<h3> 1. Please provide your username. </h2>
+		<p>Username Handle: <input type="text" name="username" id="handle"></p>
 		</div>
 		
 		<! Single Choice Q, Radio Button >
 		<div class="question">
-		<h2> Which colour scheme do you find more appealing for the website? </h2>
+		<h3> 2. Which colour scheme do you find more appealing for the website? </h2>
 		<input type="radio" name="Color" value="Dark Colour Scheme">Dark Colour Scheme<br>
 		<input type="radio" name="Color" value="Light Colour Scheme">Light Colour Scheme<br>
-		<br>
-		<br>
 		</div>
 		
 		<! Single Choic Q, Single Selection List >
 		<div class="question">
-		<h2> Please select the level of diffculty you have finding our social media handles on the website. </h2>
+		<h3> 3. Please select the level of diffculty you have finding our social media handles on the website. </h2>
 		<select id="level">
 			<option value="No Difficulty" selected="selected">No Difficulty</option>
 			<option value="Some Difficulty">Some Difficulty</option>
 			<option value="Great Difficulty">Great Difficulty</option>
 			<option value="Did Not Find Handles">Did Not Find Handles</option>
 		</select>
-		<br>
-		<br>
 		</div>
 		
 		<! Multi-Selection Q, Several Boxes Can Be Selected >
 		<div class="question">
-		<h2> Which of the following web pages were you able to successfully nagivate to when they were selected through the menu shown in the image below? </h2>
-		<img src="images/amc-ftwdu-webpage-menu.png" alt="https://www.amc.com/twdu/fear-the-walking-dead" width="225" height="150"">
+		<h3> 4. Which of the following web pages were you able to successfully nagivate to when they were selected through the menu shown in the image below? </h2>
+		<img src="images/amc-ftwdu-webpage-menu.png" alt="https://www.amc.com/twdu/fear-the-walking-dead" width="800" height="109"">
 		<br>
 		<input type="checkbox" name="Menu" value="Shows">Shows<br>
 		<input type="checkbox" name="Menu" value="News">News<br>
 		<input type="checkbox" name="Menu" value="Interactive">Interactive<br>
 		<input type="checkbox" name="Menu" value="Shop">Shop<br>
-		<br>
-		<br>
 		</div>
 		
 		<! Place to Write Comments >
-		<h2> If you have any other additional feedback you would like to provide us with, please do so in the following comments section. </h2>
-		<textarea rows="6" cols="60"></textarea>	
+		<div class="question">
+		<h3> 5. If you have any additional feedback you would like to provide us with, please do so in the following comments section. </h2>
+		<textarea rows="6" cols="50" id="textbox"></textarea>	
+		<br>
+		<br>
+		<br>
+		</div>
 		<br>
 		<br>
 		
@@ -76,10 +92,10 @@
 		<button id="submitButton" type="button" class="block">
 			SUBMIT YOUR ANSWERS
 		</button>
+		<br>
+		<br>
 		<! My Signature, Website Designed By, Footer >
-		
-		
-		<p id ="signature">Website designed by Regina Phalange</p>
+		<p id ="signature">Website Designed By Alicia Clark, May 2021</p>
 		
 		
 		</form>

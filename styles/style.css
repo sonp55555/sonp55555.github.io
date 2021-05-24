@@ -1,0 +1,119 @@
+html {
+	background-color: #415844;
+	font-family: arial, helvetica, sans-serif;
+	
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+  align: center;
+}
+
+h1 {
+	font-size: 70px;
+	text-align: center;
+	margin: 0;
+	padding: 20px 0;
+	color: white
+
+}
+
+.website {
+	font-size: 15px;
+	text-align: center;
+	margin: 0;
+	padding: 20px 0;
+	font-weight: normal;
+	color: white
+}
+
+h2 {
+	font-size: 30px;
+	text-align: center;
+	margin: 0;
+	padding: 20px 0;
+	font-weight: normal;
+	color: white
+}
+
+.question {
+	font-size: 20px;
+	text-align: left;
+	margin: 0;
+	padding: 20px 0;
+	font-weight: normal;
+	color: white
+}
+
+#handle {
+  text-align: left;
+  font-size: 100%;
+  width:360px;
+  font-family: arial, helvetica, sans-serif
+}
+
+#level {
+  text-align: left;
+  width:540px;
+  font-size: 100%;
+  font-family: arial, helvetica, sans-serif
+}
+
+#textbox {
+  text-align: left;
+  font-size: 100%;
+  font-family: arial, helvetica, sans-serif
+}
+
+.block {
+  display: block;
+  width: 50%;
+  transition-duration: 0.4s;
+  background-color: white;
+  margin: 0 auto;
+  color: black;
+  border: 2px solid #e7e7e7;
+  padding: 16px 32px;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  font-family: arial, helvetica, sans-serif
+}
+
+.block:hover {background-color: #555555; color: white;}
+
+#signature {
+  text-align: right;
+  color: white;
+  font-style: italic;
+  font-size: 100%;
+  font-family: arial, helvetica, sans-serif
+}
+
+a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ffdd00;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #ffdd00;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+
