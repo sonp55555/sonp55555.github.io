@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<! This style sheet is taken from  https://www.w3schools.com/howto/howto_js_tabs.asp>
+	<link href="styles/style.css" rel="stylesheet" type="text/css">
+	<title>Module 2 Labratory - Grocery Site</title>
+</head>
+
+<body>
+
+<h1>Fresh Food Marketplace</h1>
+<!-- Tab links, each one with an onclick event associated with it -->
+<div class="tab">
+  <button class="tablinks" onclick="openInfo(event, 'Client')">Client</button>
+  <button class="tablinks" onclick="openInfo(event, 'Products')">Products</button>
+  <button class="tablinks" onclick="openInfo(event, 'Cart')">Cart</button>
+</div>
+
+<!-- Tab content -->
+<div id="Client" class="tabcontent">
+  <h2>Your Client Information</h2>
+  <p>Please tell us what you want.</p>
+  <br>
+	<h3>Preference:</h3>
+	<input type="checkbox" class='option1' id="option1" name="option1" value="Organic_Products">
+    <label for="option1">View Organic Products</label>
+	<br>
+	<h3>Choose a Category:</h3>
+	<select id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'displayProduct')">
+	<option value=""></option>
+	<option value="Lactose-Intolerant Products">Lactose-Intolerant Products</option>
+    <option value="Nut Free Products">Nut Free Products</option>
+	<option value="Lactose-Intolerant & Nut Free Products">Lactose-Intolerant & Nut Free Products</option>
+	<option value="All Products">All Products</option>
+	</select>
+</div>
+
+<div id="Products" class="tabcontent">
+  <h2>Your Targeted Products</h2>
+  <p>Here are products based on your restrictions.</p>
+  <br>
+	 <h3>Choose Items To Buy:</h3>
+	 <div id="displayProduct"></div>
+	 <p1><i>Items have been sorted from lowest to highest prices.</i></p1>
+	 <br>
+	 <br>
+	 <button id="addCart" type="button" class="block" onclick="selectedItems()">
+		Add Selected Items To Cart
+	</button>
+</div>
+
+<div id="Cart" class="tabcontent">
+  <h2>Your Cart</h2>
+  <p>Here is your cart.</p>
+  <br>
+  <div id="displayCart"></div>
+</div>
+<br>
+<br>
+<div class="footer">
+<footer>
+  <p id ="signature">Website Designed By Meredith Grey, May 2021</p>
+</footer>
+</div>
+
+<script src="scripts/groceries.js"></script>
+<script src="scripts/main.js"></script>
+
+</body>
+</html>
