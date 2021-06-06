@@ -1,0 +1,158 @@
+/* This style sheet is taken from  https://www.w3schools.com/howto/howto_js_tabs.asp> */
+
+/* Style the tab */
+
+html {
+	background-color: #e6b098;
+	font-family: arial, helvetica, sans-serif;
+	overflow: scroll;
+	
+}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #d7805b;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  color: white;
+  float: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 16px 32px;
+  transition: 0.3s;
+  font-size: 30px;
+  font-weight: bold;
+  
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #b9572d; 
+  color: white;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+   background-color: #b9572d; 
+   color: white;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+  color: white;
+  font-size: 25px;
+  background-color: #e1a084;
+  overflow: auto;
+}
+
+h1 {
+	font-size: 80px;
+	text-align: center;
+	margin: 0;
+	padding: 20px 0;
+	color: white
+
+}
+
+h2 {
+	font-size: 40px;
+	margin: 0;
+	padding: 10px 0;
+	font-weight: bold;
+	color: white
+}
+
+h3 {
+	font-size: 30px;
+	margin: 0;
+	padding: 10px 0;
+	font-weight: bold;
+	color: white
+}
+
+p {
+	font-size: 30px;
+	margin: 0;
+	font-weight: normal;
+	color: white
+}
+
+p1 {
+	font-size: 25px;
+	margin: 0;
+	font-weight: bold;
+	color: white
+}
+
+p2 {
+	font-size: 25px;
+	font-weight: normal;
+	color: white
+}
+
+input.option1 {
+	width: 20px;
+    height: 20px;
+}
+
+#dietSelect {
+  text-align: left;
+  width:540px;
+  font-size: 25px;
+  font-family: arial, helvetica, sans-serif;
+  background-color: #d7805b;
+  color: white
+}
+
+#addCart {
+  background-color: #d7805b;
+  position: relative
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  overflow: hidden;
+  border: 2px solid #e7e7e7;
+  cursor: pointer;
+  padding: 12px 30px;
+  transition: 0.3s;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#addCart:hover {
+  background-color: #b9572d; 
+  color: white;
+}
+
+/* Create an active/current tablink class */
+#addCart.active {
+   background-color: #b9572d; 
+   color: white;
+}
+
+
+.footer {
+  text-align: right;
+  color: white;
+  font-style: italic;
+  font-family: arial, helvetica, sans-serif;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #d7805b;
+}
+
+#signature {
+  font-size: 20px;
+}
+
