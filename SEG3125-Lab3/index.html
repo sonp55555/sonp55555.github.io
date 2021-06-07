@@ -1,46 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<! This style sheet is taken from  https://www.w3schools.com/howto/howto_js_tabs.asp>
+	<! This style sheet is taken from  https://www.w3schools.com/howto/howto_js_form_steps.asp?>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link href="styles/style.css" rel="stylesheet" type="text/css">
-	<title>Module 2 Labratory - Grocery Site</title>
+	<title>Module 3 Labratory - Modified Grocery Site</title>
 </head>
 
 <body>
 
 <h1>Fresh Food Marketplace</h1>
-<!-- Tab links, each one with an onclick event associated with it -->
-<div class="tab">
-  <button class="tablinks" onclick="openInfo(event, 'Client')">Client</button>
-  <button class="tablinks" onclick="openInfo(event, 'Products')">Products</button>
-  <button class="tablinks" onclick="openInfo(event, 'Cart')">Cart</button>
+
+
+<div id="Home" class="main">
+	<h2><u>Welcome to Our Website</u></h2><br>
+	<h3>To begin your online grocery shopping experience with us, please click the "Get Started" button below.</h3><br><br>  
+	<button id="getStarted" type="button" onclick="getStarted()">Get Started</button>
 </div>
 
-<!-- Tab content -->
-<div id="Client" class="tabcontent">
+<form id="regForm" action="">
+
+
+<!-- One "tab" for each step in the form: -->
+<div class="tab">
   <h2>Your Client Information</h2>
   <p>Please tell us what you want.</p>
   <br>
-	<h3>Preference:</h3>
-	<input type="checkbox" class='option1' id="option1" name="option1" value="Organic_Products">
-    <label for="option1">View Organic Products</label>
-	<br>
 	<h3>Choose a Category:</h3>
 	<select id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'displayProduct')">
 	<option value=""></option>
 	<option value="Lactose-Intolerant Products">Lactose-Intolerant Products</option>
     <option value="Nut Free Products">Nut Free Products</option>
 	<option value="Lactose-Intolerant & Nut Free Products">Lactose-Intolerant & Nut Free Products</option>
+	<option value="Only Organic Lactose-Intolerant Products">Only Organic Lactose-Intolerant Products</option>
+    <option value="Only Organic Nut Free Products">Only Organic Nut Free Products</option>
+	<option value="Only Organic Lactose-Intolerant & Nut Free Products">Only Organic Lactose-Intolerant & Nut Free Products</option>
 	<option value="All Products">All Products</option>
 	</select>
 </div>
 
-<div id="Products" class="tabcontent">
+<div class="tab">
   <h2>Your Targeted Products</h2>
-  <p>Here are products based on your restrictions.</p>
+  <p>Here are products based on the category you have selected.</p>
   <br>
 	 <h3>Choose Items To Buy:</h3>
 	 <div id="displayProduct"></div>
+	 <br>
 	 <p1><i>Items have been sorted from lowest to highest prices.</i></p1>
 	 <br>
 	 <br>
@@ -49,7 +54,7 @@
 	</button>
 </div>
 
-<div id="Cart" class="tabcontent">
+<div class="tab">
   <h2>Your Cart</h2>
   <p>Here are the items currently in your cart.</p>
   <br>
@@ -57,6 +62,95 @@
 </div>
 <br>
 <br>
+
+<div class="tab">
+  <h2>Recieving Your Groceries</h2>
+  <p>Please tell us how you would like to recieve your groceries.</p>
+  <br>
+	<h3>Choose An Option:</h3>
+	<label class="rad">
+	<input type="radio" name="recieve" onclick="recieveOp1()" value="Pick-up My Groceries from the Store">Pick-up My Groceries from the Store<br>
+	<input type="radio"  name="recieve" onclick="recieveOp2()" value="Have My Groceries Delivered to Me">Have My Groceries Delivered to Me<br>
+	</label>
+	<br>
+</div>
+
+<div id="Pickup">
+  <h2>Pickup</h2>
+  <h3>Please provide us with your following information:</h3>
+  <br>
+  <label class="text">
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname"><br>
+  <label for="lname">Last name:</label>
+  <input type="text" id="lname" name="lname"><br>
+  <label for="email">Email Address:</label>
+  <input type="text" id="email" name="email"><br>
+  <label for="phone">Phone Number:</label>
+  <input type="text" id="phone" name="phone"><br>
+  <br>
+  </label>
+  
+  <h3>Please select one of our store locations from which you will be picking up your groceries:</h3><br>
+  <label class="rad">
+	<input type="radio" name="store" value="Mark's Fresh Food Marketplace: 925 Rathburn Rd E, Mississauga, ON L4W 4C3">Mark's Fresh Food Marketplace: 925 Rathburn Rd E, Mississauga, ON L4W 4C3<br>
+	<input type="radio"  name="store" value="Julia's Fresh Food Marketplace: 289 Dundas St E, Mississauga, ON L5A 1X1">Julia's Fresh Food Marketplace: 289 Dundas St E, Mississauga, ON L5A 1X1<br>
+	<input type="radio" name="store" value="Ryan's Fresh Food Marketplace: 587 Rue Jarry E, Montréal, QC H2P 1V6">Ryan's Fresh Food Marketplace: 587 Rue Jarry E, Montréal, QC H2P 1V6<br>
+	<input type="radio"  name="store" value="Cynthia's Fresh Food Marketplace: 6065 Rue Hochelaga, Montréal, QC H1N 1X">Cynthia's Fresh Food Marketplace: 6065 Rue Hochelaga, Montréal, QC H1N 1X<br>
+	</label>
+  <br>
+</div>
+
+<div id="Delivery">
+  <h2>Your Cart</h2>
+  <h3>Please provide us with your following information:</h3>
+  <label class="text">
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname"><br>
+  <label for="lname">Last name:</label>
+  <input type="text" id="lname" name="lname"><br>
+  <label for="email">Email Address:</label>
+  <input type="text" id="email" name="email"><br>
+  <label for="phone">Phone Number:</label>
+  <input type="text" id="phone" name="phone"><br>
+  <br>
+  </label>
+  
+  <h3>Please provide us with the address to which we will be delivering your groceries to:</h3>
+  <label class="text">
+  <label for="street">Street Address:</label>
+  <input type="text" name="street"><br>
+  <label for="city">City:</label>
+  <input type="text" name="city"><br>
+  <label for="prov">State/Province/Region:</label>
+  <input type="text" name="prov"><br>
+  <label for="postal">Postal Code/Zip Code:</label>
+  <input type="text" name="postal"><br>
+  <label for="country">Country:</label>
+  <input type="text" name="country"><br>
+  <br>
+  </label>
+  <br>
+</div>
+
+<div style="overflow:auto;">
+  <div style="float:right;">
+    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+  </div>
+</div>
+
+<!-- Circles which indicates the steps of the form: -->
+<div style="text-align:center;margin-top:40px;">
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
+</div>
+
+</form>
+
+
 <div class="footer">
 <footer>
   <p id ="signature">Website Designed By Meredith Grey, May 2021</p>

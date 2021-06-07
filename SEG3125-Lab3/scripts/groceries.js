@@ -98,40 +98,14 @@ var products = [
 // given restrictions provided, make a reduced list of products
 // prices should be included in this list, as well as a sort based on price
 
+
 function restrictListProducts(prods, restriction) {
 	let product_names = [];
 	
 	prods.sort(function(a,b){
 		return a.price - b.price
 		});
-		
-	var organic = checkornot("option1");
 	
-	console.log( organic == true);
-	if (organic == true){
-		for (let i=0; i<prods.length; i+=1) {
-			if ((restriction == "Lactose-Intolerant Products") && (prods[i].lactose == true) && (prods[i].organic == true)){
-				console.log(prods[i].organic);
-				
-				product_names.push({name:prods[i].name, price:prods[i].price});	
-			}
-			else if ((restriction == "Nut Free Products") && (prods[i].nut == true) && (prods[i].organic == true)){
-				product_names.push({name:prods[i].name, price:prods[i].price});	
-			}
-			else if ((restriction == "Lactose-Intolerant & Nut Free Products") && (prods[i].lactose == true) && (prods[i].nut == true) && (prods[i].organic == true)){
-				product_names.push({name:prods[i].name, price:prods[i].price});	
-			}
-			else if ((restriction == "All Products") && (prods[i].organic == true)){
-				product_names.push({name:prods[i].name, price:prods[i].price});	
-			}
-			else if ((restriction == "") && (prods[i].organic == true)){
-				product_names.push({name:prods[i].name, price:prods[i].price});	
-			}
-			
-		}
-	}
-	
-	else {
 		for (let i=0; i<prods.length; i+=1) {
 			if ((restriction == "Lactose-Intolerant Products") && (prods[i].lactose == true) && (prods[i].organic != true)){
 				product_names.push({name:prods[i].name, price:prods[i].price});	
@@ -142,22 +116,26 @@ function restrictListProducts(prods, restriction) {
 			else if ((restriction == "Lactose-Intolerant & Nut Free Products") && (prods[i].lactose == true) && (prods[i].nut == true) && (prods[i].organic != true)){
 				product_names.push({name:prods[i].name, price:prods[i].price});	
 			}
-			else if ((restriction == "All Products") && (prods[i].organic != true)){
+			else if (restriction == "All Products"){
 				product_names.push({name:prods[i].name, price:prods[i].price});	
 			}
-			else if ((restriction == "") && (prods[i].organic != true)){
+			else if (restriction == ""){
 				product_names.push({name:prods[i].name, price:prods[i].price});	
 			}
-			
+			else if ((restriction == "Only Organic Lactose-Intolerant Products") && (prods[i].lactose == true) && (prods[i].organic == true)){
+				product_names.push({name:prods[i].name, price:prods[i].price});	
+			}
+			else if ((restriction == "Only Organic Nut Free Products") && (prods[i].nut == true) && (prods[i].organic == true)){
+				product_names.push({name:prods[i].name, price:prods[i].price});	
+			}
+			else if ((restriction == "Only Organic Lactose-Intolerant & Nut Free Products") && (prods[i].lactose == true) && (prods[i].nut == true) && (prods[i].organic == true)){
+				product_names.push({name:prods[i].name, price:prods[i].price});	
+			}	
 		}
+		return product_names;
 	}
-	return product_names;
-}
+	
 
-function checkornot(id) {
-	var x = document.getElementById(id).checked;
-	return x;
-}
 
 // Calculate the total price of items, with received parameter being a list of products
 function getTotalPrice(chosenProducts) {
