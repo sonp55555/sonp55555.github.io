@@ -17,7 +17,7 @@ function showTab(n) {
   if (n == (x.length - 1)) {
     document.getElementById("nextBtn").innerHTML = "Proceed to Checkout";
   } else {
-    document.getElementById("nextBtn").innerHTML = "Next";
+    document.getElementById("nextBtn").innerHTML = "Next Step";
   }
   // ... and run a function that displays the correct step indicator:
   fixStepIndicator(n)
