@@ -85,7 +85,7 @@
 					<br>
 					<div class="form-check text-left p-0 m-0" id="After">
 						<label for="start">Select Appoinment Date:</label>
-						<input type="text" id="date" placeholder="dd-mm-yyyy" required>           
+						<input type="text" id="date" placeholder="dd-mm-yyyy" pattern=".{10,10}" required>           
                     </div>
 					<br>
 					<div class="form-check text-left p-0 m-0" id="After2">
@@ -109,7 +109,7 @@
 					</div>
 					<br>
 					<div class="form-group">
-						<label for="exampleFormControlInput1">Credit Card Number <img src="assets/cardl.png" alt="Credit" style="width:28px;"></label>
+						<label for="exampleFormControlInput1">Credit Card Number <img src="assets/cardl.png" alt="Credit" style="width:30px;"></label>
 						<input type="text" name="card" class="form-control" id="card" pattern=".{19,}" onkeyup="addHyphen(this)" onkeypress=" return isNumber(event)" maxlength="19" placeholder="xxxx-xxxx-xxxx-xxxx" oninvalid="this.setCustomValidity('Please enter your full credit card number (Ex. 1234-1234-1234-1234).')" oninput="this.setCustomValidity('')" required><small><b>**We require your credit card number in the case that you do not show for your appointment. You will be charged $10.**</b></small>
 					</div>
 					<br>
