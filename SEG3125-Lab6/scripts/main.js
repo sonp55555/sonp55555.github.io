@@ -89,11 +89,11 @@ $(document).ready(function() {
 	$("#select2").change(function(){
     	if ($("#select2").val()!="--Click Here to Select A Veterinarian--"){
     		var vet = $("#select2").val();
-    		if (vet=="Clarke"){
+    		if (vet=="Clarke Griffin"){
     			$("#date").datepicker("option", "beforeShowDay", clarkeDates);
-	    	}else if(vet=="Bellamy"){
+	    	}else if(vet=="Bellamy Blake"){
 	    		$("#date").datepicker("option", "beforeShowDay", bellamyDates);
-	    	}else if (vet=="Raven"){
+	    	}else if (vet=="Raven Reyes"){
 	    		$("#date").datepicker("option", "beforeShowDay", ravenDates);
 	    	}
     	}
@@ -247,7 +247,16 @@ function isNumber(evt)
     }
     return true; }
 	
-
+function theFunction() {
+		var fname = document.getElementById("fname");
+		var date = document.getElementById("date");
+		var appt = document.getElementById("appt");
+		var exampleFormControlSelect1 = document.getElementById("exampleFormControlSelect1");
+		var select2 = document.getElementById("select2");
+		var phone = document.getElementById("phone");
+		
+  alert('Thank you ' + fname.value + ', we have recieved your appointment request!\nThe following are the details of your appointment:\nDate: ' + date.value + '\nTime: ' + appt.value + '\nService: ' + exampleFormControlSelect1.value + '\nDoctor: ' + select2.value + '\nWe will be calling you at ' + phone.value + ' to confirm your booking.');
+}
 
 
 			
