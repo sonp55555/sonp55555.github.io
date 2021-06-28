@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<link href="styles/style.css" rel="stylesheet" type="text/css">
+	
+	<!-- Style sheet (CSS) and JavaScript scripts necessary to use JQuery as well as JQueryUI library -->
+    <!-- which is built on top of JQuery and offers additional possibilities -->
+    <!-- For example, JQuery UI has a datepicker which is popular and that we can use -->
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/excite-bike/jquery-ui.css" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	
+	<title>Module 6 Labratory - Updated Veterinary Clinic Site</title>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-md navbar-light p-0">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="#"><img src="assets/logo1.PNG" alt="Logo" width="66" height="60"></a>
+		<h1>PAWS.</h1>
+	</div>	
+</nav>
+
+<!--- Welcome -->
+<div class="carousel-inner">
+	<div class="overlay"></div>
+	<div class="carousel-item active">
+		<img src="assets/book1.jpg" width="1092px" height="614px">
+		<div class="carousel-caption">
+			<h1 class="display-3">PAWS.</h1>
+			<h4>Welcome to Our Veterinary Clinic Website </h4>
+			<br>
+			<br>
+			<div class="col d-grid gap-2 col-6 mx-auto text-center">
+			<button type="button" id="test" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">Book An Appointment</button>
+			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+		</div>
+	</div>
+</div>
+
+<!-- Book Appointment Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Book Appointment</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+					<form role="form" id="myForm" onsubmit="theFunction()">
+                    <b>Please provide us with the following information to book your appointment:</b>
+					<br>
+					<br>
+					<div class="form-group">
+						<label for="exampleFormControlSelect1">Select Appointment Service</label>
+						<select class="form-control" id="exampleFormControlSelect1" required>
+							<option value="" selected disabled>--Click Here to Select Service--</option>
+							<option>Dental Checkup ($50)</option>
+							<option>Grooming ($100-$175)</option>
+							<option>Medical Consult ($75)</option>
+							<option>Ticks Checkup ($100)</option>
+							<option>Wellness Exam ($50)</option>
+						</select>
+					<br>
+						<label for="select2">Select One of Our Veterinarians For Your Appointment</label>
+						<select class="form-control" id="select2" onclick="recieveOp1()" required>
+							<option value="" selected disabled>--Click Here to Select A Veterinarian--</option>
+							<option value="Clarke">Clarke Griffin</option>
+							<option value="Bellamy">Bellamy Blake</option>
+							<option value="Raven">Raven Reyes</option>
+						</select>
+					<br>
+					<div class="form-check text-left p-0 m-0" id="After">
+						<label for="start">Select Appoinment Date:</label>
+						<input type="text" id="date" placeholder="dd-mm-yyyy" required>           
+                    </div>
+					<br>
+					<div class="form-check text-left p-0 m-0" id="After2">
+						<label for="start">Select Appoinment Time:</label>
+                        <input type="time" id="appt" name="appt" min="09:00" max="18:00" required><br><small><b>**Office hours are 9am to 6pm**</b></small>
+                    </div>
+					<br>
+					<div class="form-group">
+						<label for="exampleInputEmail1">First Name</label>
+						<input type="text" name="fname" class="form-control" id="fname" aria-describedby="emailHelp" placeholder="Enter First Name Here" required>
+					</div>
+					<br>
+					<div class="form-group">
+						<label for="exampleInputPassword1">Last Name</label>
+						<input type="text" name="lname" class="form-control" id="lname" placeholder="Enter Last Name Here" required>
+					</div>
+					<br>
+					<div class="form-group">
+						<label for="exampleFormControlInput1">Phone Number</label>
+						<input type="text" name="phone" class="form-control" id="phone" pattern=".{12,}" placeholder="xxx-xxx-xxxx" oninvalid="this.setCustomValidity('Please enter your full phone number (Ex. 647-123-1234).')" oninput="this.setCustomValidity('')" required>
+					</div>
+					<br>
+					<div class="form-group">
+						<label for="exampleFormControlInput1">Credit Card Number <img src="assets/cardl.png" alt="Credit" style="width:28px;"></label>
+						<input type="text" name="card" class="form-control" id="card" pattern=".{19,}" onkeyup="addHyphen(this)" onkeypress=" return isNumber(event)" maxlength="19" placeholder="xxxx-xxxx-xxxx-xxxx" oninvalid="this.setCustomValidity('Please enter your full credit card number (Ex. 1234-1234-1234-1234).')" oninput="this.setCustomValidity('')" required><small><b>**We require your credit card number in the case that you do not show for your appointment. You will be charged $10.**</b></small>
+					</div>
+					<br>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn bg-primary">Submit Request</button>
+                </div>
+				</form>
+            </div>
+        </div>
+    </div>
+	</div>
+  
+<div class = "container-fluid">
+	<br>
+	<br>
+	
+	<div class="content p-3 my-3 border text-center">
+        <h1 class="display-3" style="font-weight: bold">Website Content</h1>
+		<hr>
+		<br>
+        <p class="lead blockquote text-center" style="font-size: 25px">Select a section or continue scrolling to see all the content of our website.</p>
+		<br>
+		<div class="col d-grid gap-2 col-6 mx-auto text-center">
+		<a href="#targetAboutUs" class="btn btn-lg2" role="button"><img src="assets/aboutl.png" alt="About" style="width:40px;"> About Us</a> <br><br>
+		<a href="#targetOurServices" class="btn btn-lg2" role="button"><img src="assets/servicesl.png" alt="Services" style="width:40px;"> Our Services</a> <br><br>
+		<a href="#targetMeetOurTeam" class="btn btn-lg2" role="button"><img src="assets/doctorl.png" alt="Team" style="width:40px;"> Our Team</a> <br><br>
+		<a href="#targetOurLocation" class="btn btn-lg2" role="button"><img src="assets/locationl.png" alt="Location" style="width:40px;"> Our Location</a> <br><br>
+		</div>
+		<br>
+		<br>
+		<hr class="my-4">
+    </div>
+	
+
+	
+	
+	<!--- About Us Section -->
+	
+		<div class="row welcome text-center" id="targetAboutUs">
+			<div class="col-12">
+			<br>
+				<h1 class="about display-4"><img src="assets/aboutd.png" alt="About" style="width:100px;"> About Us</h1>
+			</div>
+			<hr>
+		</div>
+		<br>
+		<p class="lead" style="font-size: 25px">Paws Clinic is proud to be serving the Toronto area since 2001. Our team is committed to provide our clients, your pets, with a clean and friendly environment where we can treat them with loving care for every service. At our clinic, we treat your furry little friends like ours.</p>
+		<br>
+		<br>
+		<hr class="my-4">
+	
+	<!--- Our Services Section -->
+	<div class="ourServices" id="targetOurServices">
+		<div class="row welcome text-center">
+		<div class="col-12">
+		<br>
+			<h1 class="display-4"><img src="assets/servicesd.png" alt="Services" style="width:100px;"> Our Services</h1>
+		</div>
+		<hr>
+		<br>
+	</div>
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" style="font-size: 25px" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    <p1>Dental Checkup<i><b> $50 </b></i><p1>
+                </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body" style="font-size: 21px">It is essential that you have your pet's teeth checked at least annually as just like humans, dogs and cats also need their teeth cleaned professionally.</div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingTwo">
+                <button class="accordion-button collapsed" style="font-size: 25px" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    <p1>Grooming<i><b> $100- $175 </b></i></p1>
+                </button>
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body" style="font-size: 21px">We offer professional grooming for all breeds of dogs and cats at our clinic.</div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingThree">
+                <button class="accordion-button collapsed" style="font-size: 25px" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                    <p1>Medical Consult<i><b> $75</b></i></p1>
+                </button>
+            </h2>
+            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body" style="font-size: 21px">If you are concerned that something may be wrong with your pet, please book an appointment for a medical consult. Depending on the symptoms, we may ask you to bring in your pet right away.</div>
+            </div>
+        </div>
+		<div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingFour">
+                <button class="accordion-button collapsed" style="font-size: 25px" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                    <p1>Ticks Checkup<i><b> $100 </b></i></p1>
+                </button>
+            </h2>
+            <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body" style="font-size: 21px">To ensure a proper diagnosis, we will need to thoroughly examine your pet.</div>
+            </div>
+        </div>
+		<div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingFive">
+                <button class="accordion-button collapsed" style="font-size: 25px" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                    <p1>Wellness Exam<i><b> $50 </b></i></p1>
+                </button>
+            </h2>
+            <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body" style="font-size: 21px">Bringing your pet in for an annual wellness checkup can help reassure you that your dog or cat is healthy or help us detect hidden diseases or conditions early.</div>
+            </div>
+        </div>
+		<br>
+		<br>
+		<br>
+    </div>
+    </div>
+	<hr class="my-4">
+	
+	<!--- Meet Our Team Section -->
+	<div class="row welcome text-center" id="targetMeetOurTeam">
+		<div class="col-12">
+		<br>
+			<h1 class="display-4"><img src="assets/doctord.png" alt="doctor" style="width:100px;"> Meet Our Team</h1>
+		</div>
+		<hr>
+	</div>
+	<br>
+	
+	<div class="meetOurTeam" id="targetMeetOurTeam">
+	<div class="row padding">
+		<div class="col-md-4">
+			<div class="card">
+				<img class="card-img-top" src="assets/Clarke.png" alt="Clarke">
+				<div class="card-body">
+					<h4 class="card-title">Clarke Griffin</h4>
+					<p class="card-text"><b>Licensed Veterinarian </b></p>
+					<p class="card-text">Phone Number:(613)-123-1234<br>Email: clarke.griffine@paws.com<br><u>Does Not Work On:</u> Wednesdays or Weekends (Saturday, Sunday)</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<img class="card-img-top" src="assets/Bellamy.png" alt="Bellamy">
+				<div class="card-body">
+					<h4 class="card-title">Bellamy Blake</h4>
+					<p class="card-text"><b>Licensed Veterinarian </b></p>
+					<p class="card-text">Phone Number:(905)-321-4321<br>Email: bellamy.blake@paws.com<br><u>Does Not Work On:</u> Tuesdays or Weekends (Saturday, Sunday)</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<img class="card-img-top" src="assets/Reyes.png" alt="Raven">
+				<div class="card-body">
+					<h4 class="card-title">Raven Reyes</h4>
+					<p class="card-text"><b>Licensed Veterinarian </b></p>
+					<p class="card-text">Phone Number:(647)-223-3344<br>Email: raven.reyes@paws.com<br><u>Does Not Work On:</u> Mondays or Weekends (Saturday, Sunday)</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<br>
+</div>
+<hr class="my-4">
+	
+	<!--- Our Location Section -->
+	<div class="row welcome text-center" id="targetOurLocation">
+		<div class="col-12">
+		<br>
+			<h1 class="display-4"><img src="assets/locationd.png" alt="Location" style="width:100px;"> Our Location</h1>
+		</div>
+		<hr>
+	</div>
+	<br>
+	<p class="lead blockquote text-center" style="font-size: 25px">We are located at <u>535 Yonge St, Toronto, ON M4Y 1Y5</u></p>
+	<br>
+	<div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px;text-align:center">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d92359.13042678645!2d-79.4537686!3d43.6643354!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34b3e82e6fe7%3A0xfd9f32cdb9383d12!2sWellesley%20Animal%20Hospital!5e0!3m2!1sen!2sca!4v1623557449508!5m2!1sen!2sca" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+	</div>	
+	
+	<!-- Back to Top Button -->
+	<button type="button" class="btn bg-primary btn-floating btn-lg" id="btn-back-to-top">Back to the Top</button>
+
+</div>
+
+<!-- Optional JavaScript -->
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<script src="scripts/main.js"></script>
+</body>
+</html>
